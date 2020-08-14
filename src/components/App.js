@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
 import HomePage from "./HomePage";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import About from "./About";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ParticleComponent from "./ParticleComponent";
 
 class App extends React.Component {
@@ -19,16 +20,37 @@ class App extends React.Component {
         });
     }
 
+    // render() {
+    //     return (
+    //         <Router>
+    //             <div className="home">
+    //                 <ParticleComponent />
+    //                 <Switch>
+    //                     <Route path="/about">
+    //                         <About />
+    //                     </Route>
+    //                     <Route path="/">
+    //                         <HomePage
+    //                             type_animation={this.state.type_animation}
+    //                             stopAnimation={this.stopAnimation}
+    //                         />
+    //                     </Route>
+    //                 </Switch>
+    //             </div>
+    //         </Router>
+    //     );
+    // }
+
     render() {
         return (
             <Router>
                 <div className="home">
                     <ParticleComponent />
                     <Switch>
-                        {/* <Route path="/about">
+                        <Route path={process.env.PUBLIC_URL + "/about"}>
                             <About />
-                        </Route> */}
-                        <Route path="/">
+                        </Route>
+                        <Route path={process.env.PUBLIC_URL + "/"}>
                             <HomePage
                                 type_animation={this.state.type_animation}
                                 stopAnimation={this.stopAnimation}

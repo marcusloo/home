@@ -20,9 +20,8 @@
 .nothing,
 .nothing:hover {
     color: transparent;
-    /* pointer-events: none; */
+    pointer-events: none;
     display: inline-block;
-    cursor: not-allowed;
 }
 
 .aboutMe:before {

@@ -1,11 +1,9 @@
-// import React from "react";
+import React from "react";
+import "./About.css";
 
-// function About() {
-//     return (
-//         <footer>
-//             <h3>This is a test</h3>
-//         </footer>
-//     );
-// }
-
-// export default About;
+class About extends React.Component {
+    render() {
+        return <div className="summary">This does work</div>;
+    }
+}
+export default About;

@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "./HomePage.css";
 import Typed from "typed.js";
 import { Link } from "react-router-dom";
 
 class HomePage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     componentDidMount() {
         if (this.props.type_animation) {

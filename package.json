@@ -13,8 +13,7 @@
         "react-particles-js": "^3.3.0",
         "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.3",
-        "typed.js": "^2.0.11",
-        "typeit-react": "^0.1.3"
+        "typed.js": "^2.0.11"
     },
     "scripts": {
         "predeploy": "npm run build",
