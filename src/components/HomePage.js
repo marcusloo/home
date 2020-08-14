@@ -37,7 +37,10 @@ class HomePage extends React.Component {
                         }}
                     />
                 </div>
-                <Link className={this.props.type_animation ? "nothing" : "aboutMe"} to="/about">
+                <Link
+                    className={this.props.type_animation ? "nothing" : "aboutMe"}
+                    to={process.env.PUBLIC_URL + "/about"}
+                >
                     more info
                 </Link>
             </div>
