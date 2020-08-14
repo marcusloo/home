@@ -1,0 +1,40 @@
+.homeMain {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 25vh;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.aboutMe {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: calc(10px + 1vmin);
+}
+
+.nothing,
+.nothing:hover {
+    color: transparent;
+    /* pointer-events: none; */
+    display: inline-block;
+    cursor: not-allowed;
+}
+
+.aboutMe:before {
+    content: "[";
+    transition: 0.3s all;
+}
+
+.aboutMe:after {
+    content: "]";
+    transition: 0.3s all;
+}
+.aboutMe:hover:before,
+.aboutMe:hover:after {
+    margin: 0 5px;
+}
