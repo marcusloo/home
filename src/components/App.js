@@ -11,35 +11,16 @@ class App extends React.Component {
         this.stopAnimation = this.stopAnimation.bind(this);
         this.state = {
             type_animation: true,
+            animation_removed: false,
         };
     }
 
     stopAnimation() {
         this.setState({
             type_animation: false,
+            animation_removed: true,
         });
     }
-
-    // render() {
-    //     return (
-    //         <Router>
-    //             <div className="home">
-    //                 <ParticleComponent />
-    //                 <Switch>
-    //                     <Route path="/about">
-    //                         <About />
-    //                     </Route>
-    //                     <Route path="/">
-    //                         <HomePage
-    //                             type_animation={this.state.type_animation}
-    //                             stopAnimation={this.stopAnimation}
-    //                         />
-    //                     </Route>
-    //                 </Switch>
-    //             </div>
-    //         </Router>
-    //     );
-    // }
 
     render() {
         return (
@@ -51,10 +32,7 @@ class App extends React.Component {
                             <About />
                         </Route>
                         <Route path={process.env.PUBLIC_URL + "/"}>
-                            <HomePage
-                                type_animation={this.state.type_animation}
-                                stopAnimation={this.stopAnimation}
-                            />
+                            <HomePage {...this.state} stopAnimation={this.stopAnimation} />
                         </Route>
                     </Switch>
                 </div>
