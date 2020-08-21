@@ -2,28 +2,39 @@ import React from "react";
 import "./HomePage.css";
 import Typed from "typed.js";
 import { Link } from "react-router-dom";
+import { UncontrolledCollapse, Button, CardBody, Card } from "reactstrap";
+import github from "../assets/github.png";
+import linkedin from "../assets/linkedin.png";
+import resume from "../assets/resume.png";
 
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
+        this.endAnimation = this.endAnimation.bind(this);
+        this.changeCollapse = this.changeCollapse.bind(this);
+        this.state = {
+            to_expand: true,
+        };
     }
 
     componentDidMount() {
         if (this.props.type_animation) {
             const options = {
                 strings: [
-                    "Hello!^500 I am <strong>Marcus Loo</strong>. ^500I am currently a Machine Learning Grad Student at Georgia Tech.",
+                    "<strong>Marcus Loo</strong>. ^500 Machine Learning Grad Student at Georgia Tech.",
                 ],
                 typeSpeed: 10,
-                onComplete: () => {
-                    if (!this.props.animation_removed) {
-                        this.typed.destroy();
-                    }
-                    this.props.stopAnimation();
-                },
+                onComplete: this.endAnimation,
             };
             this.typed = new Typed(this.intro, options);
         }
+    }
+
+    endAnimation() {
+        if (!this.props.animation_removed) {
+            this.typed.destroy();
+        }
+        this.props.stopAnimation();
     }
 
     componentWillUnmount() {
@@ -49,23 +60,61 @@ class HomePage extends React.Component {
         } else {
             return (
                 <span>
-                    Hello! I am <strong>Marcus Loo</strong>. I am currently a Machine Learning Grad
-                    Student at Georgia Tech.
+                    <strong>Marcus Loo</strong>. Machine Learning Grad Student at Georgia Tech.
                 </span>
             );
         }
     }
 
+    card() {
+        return (
+            <UncontrolledCollapse toggler="#toggler">
+                <Card
+                    className="aboutCard"
+                    style={{ backgroundColor: "#282c34", borderColor: "#282c34" }}
+                >
+                    <CardBody className="cardText">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt magni,
+                        voluptas debitis similique porro a molestias consequuntur earum odio
+                        officiis natus, amet hic, iste sed dignissimos esse fuga! Minus, alias.
+                    </CardBody>
+                </Card>
+            </UncontrolledCollapse>
+        );
+    }
+
+    changeCollapse() {
+        this.setState({ to_expand: !this.state.to_expand });
+    }
+
     render() {
         return (
-            <div className="homeMain">
-                <div className="intro">{this.introAnimation()}</div>
-                <Link
-                    className={this.props.type_animation ? "nothing" : "aboutMe"}
-                    to={process.env.PUBLIC_URL + "/about"}
-                >
-                    more info
-                </Link>
+            <div className="main">
+                <div className="homeMain">
+                    <div className={this.props.type_animation ? "nothing" : "headerLinks"}>
+                        <a href="https://github.com/mloo3">
+                            <img src={github} width="30" height="30" className="icons" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/marcusloo/">
+                            <img src={linkedin} width="30" height="30" className="icons" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/marcusloo/">
+                            <img src={resume} width="30" height="30" className="icons" />
+                        </a>
+                    </div>
+                    <div className="intro">{this.introAnimation()}</div>
+                    <div
+                        id="toggler"
+                        className={this.props.type_animation ? "nothing" : "aboutMe"}
+                        onClick={this.changeCollapse}
+                    >
+                        {this.state.to_expand ? "more info" : "less info"}
+                    </div>
+                    {this.card()}
+                </div>
+                <div className={this.props.type_animation ? "nothing" : "projectHome"}>
+                    <h1 className="projectTitle">Projects</h1>
+                </div>
             </div>
         );
     }

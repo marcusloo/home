@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import HomePage from "./HomePage";
-import About from "./About";
+import Project from "./Project";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ParticleComponent from "./ParticleComponent";
 
@@ -27,14 +27,14 @@ class App extends React.Component {
             <Router>
                 <div className="home">
                     <ParticleComponent />
-                    <Switch>
-                        <Route path={process.env.PUBLIC_URL + "/about"}>
-                            <About />
-                        </Route>
-                        <Route path={process.env.PUBLIC_URL + "/"}>
-                            <HomePage {...this.state} stopAnimation={this.stopAnimation} />
-                        </Route>
-                    </Switch>
+                    <Route exact path={process.env.PUBLIC_URL + "/"}>
+                        <HomePage {...this.state} stopAnimation={this.stopAnimation} />
+                    </Route>
+                    <Route
+                        exact
+                        path={process.env.PUBLIC_URL + "/projects/:name"}
+                        component={Project}
+                    ></Route>
                 </div>
             </Router>
         );
