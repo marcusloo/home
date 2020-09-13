@@ -74,9 +74,10 @@ class HomePage extends React.Component {
                     style={{ backgroundColor: "#282c34", borderColor: "#282c34" }}
                 >
                     <CardBody className="cardText">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt magni,
-                        voluptas debitis similique porro a molestias consequuntur earum odio
-                        officiis natus, amet hic, iste sed dignissimos esse fuga! Minus, alias.
+                        I am a Master student at Georgia Tech currently doing Reinforcement
+                        Learning/Robotics research under Professor Sehoon Ha. My current focus is on
+                        Learning from Demonstrations and Active Learning. I am also interested in
+                        web development and backend engineering.
                     </CardBody>
                 </Card>
             </UncontrolledCollapse>
@@ -98,9 +99,9 @@ class HomePage extends React.Component {
                         <a href="https://www.linkedin.com/in/marcusloo/">
                             <img src={linkedin} width="30" height="30" className="icons" />
                         </a>
-                        <a href="https://www.linkedin.com/in/marcusloo/">
+                        <Link to="/resume">
                             <img src={resume} width="30" height="30" className="icons" />
-                        </a>
+                        </Link>
                     </div>
                     <div className="intro">{this.introAnimation()}</div>
                     <div
@@ -112,9 +113,12 @@ class HomePage extends React.Component {
                     </div>
                     {this.card()}
                 </div>
-                <div className={this.props.type_animation ? "nothing" : "projectHome"}>
+                {/* <div className={this.props.type_animation ? "nothing" : "projectHome"}>
                     <h1 className="projectTitle">Projects</h1>
                 </div>
+                <div className={this.props.type_animation ? "nothing" : "otherHome"}>
+                    <h1 classname="moreLinks">More Links</h1>
+                </div> */}
             </div>
         );
     }
