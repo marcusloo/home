@@ -1,7 +1,7 @@
 import React from "react";
 import "./HomePage.css";
 import Typed from "typed.js";
-import { Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import { UncontrolledCollapse, Button, CardBody, Card } from "reactstrap";
 import github from "../assets/github.png";
 import linkedin from "../assets/linkedin.png";
